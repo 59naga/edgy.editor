@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body{
+  margin: 0;
+  font-size: 5vw;
+  font-family: 'misaki_gothic';
+
+  -webkit-transition:all .25s linear;
+  transition:all .25s linear;
+}
+main{
+}
+main{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+  border:1px solid rgba(100,100,100,.5);
+  background-color:white;
+  overflow:scroll;
+}
+header,footer{
+  text-align:center;
+  position:absolute;
+  left:0;
+  right:0;
+}
+header{
+  top:0;
+}
+footer{
+  bottom:0;
+}
+input,button{
+  font-size:1em;
+  font-family: 'misaki_gothic';
+  background: whitesmoke;
+  display:inline-block;
+  margin:0;
+  padding:0;
+}
+input{
+  text-align:right;
+}
+header input, header button{
+  width:2em;
+}
+footer input[type=text]{
+  width:4em;
+}
+@media(orientation:portrait){
+  main{
+    width:80vw;
+    height:80vw;
+  }
+}
+@media(orientation:landscape){
+  main{
+    width:80vh;
+    height:80vh;
+  }
+}
+</style>
+<link rel="stylesheet" href="http://static.edgy.black/misaki_gothic.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+<script src="https://cdn.rawgit.com/59naga/history-json/master/history-json.min.js"></script>
+<script src="index.js"></script>
+</head>
+<body>
+  <div ng-app="edgy">
+    <header>
+      x:<input type="range" ng-model="zoom" min="1" max="48"><input type="text" ng-model="zoom">
+      w:<input type="range" ng-model="width" min="1" max="512"><input type="text" ng-model="width">
+      h:<input type="range" ng-model="height" min="1" max="512"><input type="text" ng-model="height">
+    </header>
+
+    <viewer>
+      <art />
+    </viewer>
+
+    <footer>
+      sync:<input type="checkbox" ng-model="sync">
+      color:<input type="color" ng-model="color"><input type="text" ng-model="color">
+
+      <button ng-click="save()">save</button>
+      <button ng-click="undo()">←</button>
+      <button ng-click="redo()">→</button>
+    </footer>
+  </div>
+</body>
+</html>
